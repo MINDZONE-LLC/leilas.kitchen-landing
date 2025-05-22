@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <script id="mcjs">!function(c,h,i,m,p){m=c.createElement(h),p=c.getElementsByTagName(h)[0],m.async=1,m.src=i,p.parentNode.insertBefore(m,p)}(document,"script","https://chimpstatic.com/mcjs-connected/js/users/5bd171cb01bfddc1e12ab8811/b0adbc127767feba193216ad5.js");</script>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Leila's Kitchen</title>
@@ -60,15 +59,15 @@
       text-align: center;
       margin-top: 2rem;
     }
-    .cta a {
-      display: inline-block;
+    .cta button {
       margin-top: 0.5rem;
       background: #ff9e4d;
       color: white;
       padding: 0.8rem 1.5rem;
       border-radius: 6px;
-      text-decoration: none;
+      border: none;
       font-weight: bold;
+      cursor: pointer;
     }
   </style>
 </head>
@@ -111,7 +110,7 @@
     <div class="cta">
       <h2>Be the first to try it!</h2>
       <p>We're cooking up something special. Get notified when we launch.</p>
-      <button onclick="return false;">Join the Waitlist</button>
+      <button id="triggerMailchimp">Join the Waitlist</button>
     </div>
   </div>
 
@@ -119,5 +118,18 @@
     Made with 🧡 by Leila & Majnun<br>
     Follow our journey at <strong>leilas.kitchen</strong>
   </footer>
+
+  <!-- Mailchimp Pop-Up Script -->
+  <script id="mcjs" defer>!function(c,h,i,m,p){m=c.createElement(h),p=c.getElementsByTagName(h)[0],m.async=1,m.src=i,p.parentNode.insertBefore(m,p)}(document,"script","https://chimpstatic.com/mcjs-connected/js/users/5bd171cb01bfddc1e12ab8811/b0adbc1277f67feba193216ad5.js");</script>
+
+  <!-- Control Mailchimp Popup manually -->
+  <script>
+    document.getElementById("triggerMailchimp").addEventListener("click", function () {
+      const popupButton = document.querySelector('[id^="mcjs"] + div iframe');
+      if (popupButton) {
+        popupButton.contentWindow.postMessage({ event: 'mcjs-open' }, '*');
+      }
+    });
+  </script>
 </body>
 </html>
