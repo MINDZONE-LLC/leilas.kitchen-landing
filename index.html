@@ -120,15 +120,12 @@
   </footer>
 
   <!-- Mailchimp Pop-Up Script -->
-  <script id="mcjs" defer>!function(c,h,i,m,p){m=c.createElement(h),p=c.getElementsByTagName(h)[0],m.async=1,m.src=i,p.parentNode.insertBefore(m,p)}(document,"script","https://chimpstatic.com/mcjs-connected/js/users/5bd171cb01bfddc1e12ab8811/b0adbc1277f67feba193216ad5.js");</script>
+  <script id="mcjs" defer>!function(c,h,i,m,p){m=c.createElement(h),p=c.getElementsByTagName(h)[0],m.async=1,m.src=i,p.parentNode.insertBefore(m,p)}(document,"script","https://chimpstatic.com/mcjs-connected/js/users/5bd171cb01bfddc1e12ab8811/b0adbc127767feba193216ad5.js");</script>
 
-  <!-- Control Mailchimp Popup manually -->
+  <!-- Fix Mailchimp Popup Trigger -->
   <script>
     document.getElementById("triggerMailchimp").addEventListener("click", function () {
-      const popupButton = document.querySelector('[id^="mcjs"] + div iframe');
-      if (popupButton) {
-        popupButton.contentWindow.postMessage({ event: 'mcjs-open' }, '*');
-      }
+      window.dispatchEvent(new Event("click"));
     });
   </script>
 </body>
